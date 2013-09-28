@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
-<hibernate-configuration
-	xmlns="http://www.hibernate.org/xsd/hibernate-configuration"
-	xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-configuration hibernate-configuration-4.0.xsd"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<hibernate-configuration>
 	<session-factory>
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">org.postgresql.Driver</property>
@@ -21,13 +21,13 @@
 		<property name="current_session_context_class">thread</property>
 
 		<!-- Disable the second-level cache -->
-		<property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+		<!-- property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property-->
 
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
 
 		<!-- Drop and re-create the database schema on startup -->
 		<!-- property name="hbm2ddl.auto">update</property-->
-		<mapping resource="sangre/project/product/dom/Employee.hbm.xml" />
+		<mapping resource="Employee.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

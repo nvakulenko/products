@@ -1,7 +1,7 @@
 package sangre.project.product.dom;
 
 public class UniqueEntity {
-	private Integer id;
+	protected Integer id;
 
 	public Integer getId() {
 		return id;

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="sangre.project.product.dom">
+
+	<class name="Employee" table="employees" discriminator-value="C">
+
+		<id name="id" column="employee_id">
+			<generator class="native" />
+		</id>
+
+		<discriminator column="subclass" type="character" />
+		
+		<property name="name" column="name"/>
+		<property name="title" column="title"/>
+		<property name="address" column="address"/>
+		<property name="birthDate" column="birth_date" type="date" not-null="true"  />
+		<property name="hireDate" column="hire_date" type="date" not-null="true"  />
+		<property name="homePhone" column="home_phone"/>
+		<property name="notes" column="notes"/>
+	</class>
+
+</hibernate-mapping>

@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Employee extends UniqueEntity {
 
-	private String name;
-	private String title;
-	private String address;
-	private Date birthDate;
-	private Date hireDate;
-	private String homePhone;
-	private String notes;
+	protected String name;
+	protected String title;
+	protected String address;
+	protected Date birthDate;
+	protected Date hireDate;
+	protected String homePhone;
+	protected String notes;
 
 	public String getName() {
 		return name;

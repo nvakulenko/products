@@ -13,34 +13,58 @@
 		<jetty.version>7.0.2.v20100331</jetty.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<guice.version>3.1.2</guice.version>
-		<hibernate.version>3.6.0.Beta2</hibernate.version>
+		<hibernate.version>4.2.6.Final</hibernate.version>
+		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
 		<jersey.version>1.16</jersey.version>
 		<jackson.version>1.9.10</jackson.version>
 		<cloudy.version>0.0.4</cloudy.version>
 		<beanstalk.cnamePrefix>product-env</beanstalk.cnamePrefix>
 		<beanstalker.region>us-east-1</beanstalker.region>
-		<!-- review src/main/webapp/.ebextensions/java7.config if you change this setting
-		-->
-                <beanstalk.solutionStack>64bit Amazon Linux running Tomcat 7</beanstalk.solutionStack>
+		<!-- review src/main/webapp/.ebextensions/java7.config if you change this 
+			setting -->
+		<beanstalk.solutionStack>64bit Amazon Linux running Tomcat 7</beanstalk.solutionStack>
 		<!-- switch to .../health/check when you set iamInstanceProfile below -->
-                <beanstalk.applicationHealthCheckURL>/services/api/v1/health/debug</beanstalk.applicationHealthCheckURL>
+		<beanstalk.applicationHealthCheckURL>/services/api/v1/health/debug</beanstalk.applicationHealthCheckURL>
 		<beanstalk.environmentName>product-env</beanstalk.environmentName>
-                <beanstalk.environmentType>SingleInstance</beanstalk.environmentType>
+		<beanstalk.environmentType>SingleInstance</beanstalk.environmentType>
 		<!-- replace with your environment details -->
-		<!--
-                <beanstalk.keyName>[your-key-name]</beanstalk.keyName>
-                <beanstalk.iamInstanceProfile>aws-elasticbeanstalk-ec2-role</beanstalk.iamInstanceProfile>
-                <beanstalk.instanceType>m1.small</beanstalk.instanceType>
-                <beanstalk.availabilityZones>us-east-1e, us-east-1d</beanstalk.availabilityZones>
-		-->
+		<!-- <beanstalk.keyName>[your-key-name]</beanstalk.keyName> <beanstalk.iamInstanceProfile>aws-elasticbeanstalk-ec2-role</beanstalk.iamInstanceProfile> 
+			<beanstalk.instanceType>m1.small</beanstalk.instanceType> <beanstalk.availabilityZones>us-east-1e, 
+			us-east-1d</beanstalk.availabilityZones> -->
 	</properties>
 
 	<dependencies>
-		<dependency>		    
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate</artifactId>
-		    <version>${hibernate.version}</version>
-		</dependency>  
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.common</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>${hibernate.version}</version>
+			<classifier>tests</classifier>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency-->
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-server</artifactId>
@@ -59,9 +83,9 @@
 			<version>2.6</version>
 		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.1.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
